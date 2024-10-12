@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyiaui4csgey6"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_8ek0h"]
+[ext_resource type="Texture2D" uid="uid://b6cajxerevw5t" path="res://icon.svg" id="2_43yhj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i72xf"]
+size = Vector2(131, 128)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_8ek0h")
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(304, 335)
+texture = ExtResource("2_43yhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(304.5, 336)
+shape = SubResource("RectangleShape2D_i72xf")
+
+[node name="SprintTimer" type="Timer" parent="CharacterBody2D"]
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 5.0
+
+[connection signal="timeout" from="CharacterBody2D/SprintTimer" to="CharacterBody2D" method="_on_sprint_timer_timeout"]
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
