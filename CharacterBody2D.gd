@@ -44,3 +44,5 @@ func _on_timer_timeout():
 	CANSPRINT = true 
 	$SprintTimer.start(-1)
 	$Timer.stop()
+	print("hi")
+	
