@@ -20,7 +20,6 @@ func _physics_process(delta):
 	else:
 		$SprintTimer.set_paused(true)
 		velocity = move(direction_x,direction_y,SPEED)
-	print($SprintTimer.get_time_left())
 	move_and_slide()
 func move(x,y,SPEED):
 	var v : Vector2
@@ -39,8 +38,9 @@ func _input( event ):
 func _on_sprint_timer_timeout():
 	CANSPRINT = false
 	$Timer.start(-1)
-
+	$SprintTimer.stop()
 
 func _on_timer_timeout():
 	CANSPRINT = true 
 	$SprintTimer.start(-1)
+	$Timer.stop()
