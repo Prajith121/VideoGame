@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://v7vnhixbm8if"]
+
+[ext_resource type="Script" path="res://Player/CharacterBody2D.gd" id="1_y6tb1"]
+[ext_resource type="Texture2D" uid="uid://b6cajxerevw5t" path="res://icon.svg" id="2_2rob6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i72xf"]
+size = Vector2(131, 128)
+
+[node name="Player" type="Node2D"]
+
+[node name="Stamina" type="ProgressBar" parent="."]
+z_index = 1
+offset_right = 398.0
+offset_bottom = 27.0
+step = 0.1
+allow_greater = true
+allow_lesser = true
+show_percentage = false
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_y6tb1")
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(304, 335)
+texture = ExtResource("2_2rob6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(304.5, 336)
+shape = SubResource("RectangleShape2D_i72xf")
