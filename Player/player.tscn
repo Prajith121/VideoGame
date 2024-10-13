@@ -8,6 +8,15 @@ size = Vector2(131, 128)
 
 [node name="Player" type="Node2D"]
 
+[node name="Stamina" type="ProgressBar" parent="."]
+z_index = 1
+offset_right = 398.0
+offset_bottom = 27.0
+step = 0.1
+allow_greater = true
+allow_lesser = true
+show_percentage = false
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_y6tb1")
 
@@ -18,15 +27,3 @@ texture = ExtResource("2_2rob6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(304.5, 336)
 shape = SubResource("RectangleShape2D_i72xf")
-
-[node name="SprintTimer" type="Timer" parent="CharacterBody2D"]
-process_mode = 1
-wait_time = 10.0
-one_shot = true
-autostart = true
-
-[node name="SprintStopTimer" type="Timer" parent="CharacterBody2D"]
-wait_time = 5.0
-
-[connection signal="timeout" from="CharacterBody2D/SprintTimer" to="CharacterBody2D" method="_on_sprint_timer_timeout"]
-[connection signal="timeout" from="CharacterBody2D/SprintStopTimer" to="CharacterBody2D" method="_on_sprint_stop_timer_timeout"]
