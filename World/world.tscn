@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs2ebxc7beo7"]
+
+[ext_resource type="PackedScene" uid="uid://v7vnhixbm8if" path="res://Player/player.tscn" id="1_8gvyp"]
+[ext_resource type="Script" path="res://World/UIscript.gd" id="2_k8lkq"]
+
+[node name="world" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8gvyp")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("2_k8lkq")
+
+[node name="PlayerStamina" type="ProgressBar" parent="UI"]
+offset_right = 288.0
+offset_bottom = 50.0
+
+[connection signal="staminaSignal" from="Player" to="UI" method="_on_player_stamina_signal"]
