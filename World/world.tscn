@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs2ebxc7beo7"]
+[gd_scene load_steps=4 format=3 uid="uid://bs2ebxc7beo7"]
 
 [ext_resource type="PackedScene" uid="uid://v7vnhixbm8if" path="res://Player/player.tscn" id="1_8gvyp"]
 [ext_resource type="Script" path="res://World/UIscript.gd" id="2_k8lkq"]
+[ext_resource type="PackedScene" uid="uid://b22ldpwgh3acd" path="res://World/slime_enemy.tscn" id="3_14vo2"]
 
 [node name="world" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_8gvyp")]
+y_sort_enabled = true
+position = Vector2(540, 287)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("2_k8lkq")
@@ -14,4 +18,20 @@ script = ExtResource("2_k8lkq")
 offset_right = 288.0
 offset_bottom = 50.0
 
+[node name="PlayerHealth" type="ProgressBar" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -56.0
+offset_right = 302.0
+offset_bottom = -2.0
+grow_vertical = 0
+allow_greater = true
+allow_lesser = true
+
+[node name="SlimeEnemy" parent="." instance=ExtResource("3_14vo2")]
+position = Vector2(82, 113)
+
+[connection signal="healthSignal" from="Player" to="UI" method="_on_player_health_signal"]
 [connection signal="staminaSignal" from="Player" to="UI" method="_on_player_stamina_signal"]

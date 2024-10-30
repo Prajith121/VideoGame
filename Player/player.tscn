@@ -289,22 +289,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2thb"]
-radius = 8.858
-height = 17.716
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lpc61"]
+radius = 4.50703
+height = 23.662
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(375, 231)
+position = Vector2(469, 276)
 script = ExtResource("1_c0vv7")
 inv = ExtResource("2_n8hnt")
 
 [node name="Player_Animations" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -7)
 scale = Vector2(4.86, 4.86)
 sprite_frames = SubResource("SpriteFrames_kuh3d")
 animation = &"walk_up"
+offset = Vector2(0, -15)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -31.92)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 34)
-scale = Vector2(-2.84896, 3.53126)
-shape = SubResource("CapsuleShape2D_p2thb")
+position = Vector2(3, 10)
+rotation = 1.5708
+scale = Vector2(1.775, 1.775)
+shape = SubResource("CapsuleShape2D_lpc61")

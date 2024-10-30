@@ -3,11 +3,14 @@ extends CharacterBody2D
 
 const SPEED = 200.0
 const SPRINTSPEED = 400.0
+const MAXHEALTH = 100
 var SPRINTTIME = 200
 var CANSPRINT = true
 var stamina = 100
 @export var inv : Inv
+var Health = 100; 
 signal staminaSignal(stamina)
+signal healthSignal(healthPercent)
 var lastMoveDir = "right"
 var idle: bool = true
 func _ready():
@@ -76,3 +79,7 @@ func move(x,y,SPEED):
 	
 	return (v.normalized() * SPEED)
 			
+
+
+func _on_health_signal(health):
+	pass # Replace with function body.

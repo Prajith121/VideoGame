@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://b22ldpwgh3acd"]
+
+[ext_resource type="Texture2D" uid="uid://bpn8gdjj65ujr" path="res://sprites/characters/slime.png" id="1_1fqlv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjemi"]
+atlas = ExtResource("1_1fqlv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76l7y"]
+atlas = ExtResource("1_1fqlv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tujn8"]
+atlas = ExtResource("1_1fqlv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l38cy"]
+atlas = ExtResource("1_1fqlv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_knh0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjemi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76l7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tujn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l38cy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uqc5"]
+radius = 2.66667
+height = 17.3333
+
+[node name="SlimeEnemy" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(-2, -2)
+
+[node name="SlimeSprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -26.835)
+scale = Vector2(3.935, 4)
+sprite_frames = SubResource("SpriteFrames_knh0x")
+animation = &"idle"
+frame_progress = 0.855702
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+rotation = 1.5708
+scale = Vector2(3, 3)
+shape = SubResource("CapsuleShape2D_5uqc5")
