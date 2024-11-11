@@ -6,8 +6,7 @@ const SPRINTSPEED = 400.0
 const MAXHEALTH = 100
 var SPRINTTIME = 200
 var CANSPRINT = true
-var stamina = 100
-@export var inv : Inv
+var stamina = 100;
 var Health = 100; 
 signal staminaSignal(stamina)
 signal healthSignal(healthPercent)
