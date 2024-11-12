@@ -13,10 +13,6 @@ func _process(delta):
 
 
 
-func _on_player_stamina_signal(stamina):
-	$PlayerStamina.value = stamina
-
-
 
 func _on_player_health_signal(healthPercent):
 	$PlayerHealth.value = healthPercent

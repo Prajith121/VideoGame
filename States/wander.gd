@@ -2,19 +2,24 @@ extends State
 class_name enemy_wander
 
 @export var enemy : CharacterBody2D
-@export var movespeed :=15
+@export var movespeed :=150
+
+const moveDirections : Array = [Vector2(1,0),Vector2(-1,0),Vector2(-1,-1),Vector2(0,1),Vector2(0,-1),Vector2(1,1)]
 var move_direction : Vector2 
 var wander_time : float 
+var player : CharacterBody2D
 func Enter():
 	randomizeWander()
-
+	player = get_tree().get_first_node_in_group("player")
+	print("wander entered")
 func Exit():
 	pass
 	
 func Update(delta: float):
+	if (player.global_position - enemy.global_position).length() < 100:
+		emit_signal("transitioned",self,"enemy_follow")
 	if wander_time >0:
 		wander_time-=delta
-		PhysicsUpdate(delta)
 	else:
 		randomizeWander()
 func PhysicsUpdate(_delta: float):
