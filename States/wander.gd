@@ -4,7 +4,6 @@ class_name enemy_wander
 @export var enemy : CharacterBody2D
 @export var movespeed :=150
 
-const moveDirections : Array = [Vector2(1,0),Vector2(-1,0),Vector2(-1,-1),Vector2(0,1),Vector2(0,-1),Vector2(1,1)]
 var move_direction : Vector2 
 var wander_time : float 
 var player : CharacterBody2D

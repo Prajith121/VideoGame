@@ -50,3 +50,6 @@ func move(x,y):
 
 func _on_health_signal(_health):
 	pass # Replace with function body.
+	
+func Player():
+	pass
