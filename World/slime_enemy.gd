@@ -10,3 +10,6 @@ func _physics_process(_delta):
 		else:
 			$SlimeSprite.flip_h = true
 	move_and_slide()
+
+
+

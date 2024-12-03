@@ -292,7 +292,7 @@ animations = [{
 radius = 4.50703
 height = 23.662
 
-[node name="Player" type="CharacterBody2D" groups=["player", "sllimetarget"]]
+[node name="Player" type="CharacterBody2D" groups=["player", "slimetarget"]]
 position = Vector2(469, 276)
 platform_floor_layers = 4294901760
 script = ExtResource("1_c0vv7")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b22ldpwgh3acd"]
+[gd_scene load_steps=20 format=3 uid="uid://b22ldpwgh3acd"]
 
 [ext_resource type="Texture2D" uid="uid://bpn8gdjj65ujr" path="res://sprites/characters/slime.png" id="1_1fqlv"]
 [ext_resource type="Script" path="res://World/slime_enemy.gd" id="1_2pgnj"]
@@ -94,6 +94,9 @@ animations = [{
 radius = 2.66667
 height = 17.3333
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xoq3p"]
+radius = 791.001
+
 [node name="SlimeEnemy" type="CharacterBody2D"]
 y_sort_enabled = true
 position = Vector2(516, 252)
@@ -160,3 +163,14 @@ script = ExtResource("6_aeyod")
 [node name="7" type="RayCast2D" parent="Rays"]
 target_position = Vector2(70.711, -70.711)
 script = ExtResource("6_aeyod")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_xoq3p")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
+
+[connection signal="body_entered" from="DetectionArea" to="StateMachine/enemy_wander" method="_on_detection_area_body_entered"]

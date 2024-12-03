@@ -14,7 +14,7 @@ var Velocity : Vector2
 var interestList = [0,0,0,0,0,0,0,0]
 
 func Enter():
-	player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("slimetarget")
 	print("follow Entered")
 	for i in Rays.get_children():
 		i.colliding.connect(danger)
@@ -46,8 +46,10 @@ func danger(rayCast,body):
 	if body.is_in_group("slimetarget"):
 		return 
 	else:
+		var vector1 = moveDirections[int(str(rayCast.name))]
 		interestList[int(str(rayCast.name))] += -5
-		
+		interestList[moveDirections.find(Vector2(vector1.x*-1,vector1.y*-1))] += 0.01
+
 		
 		
 		
